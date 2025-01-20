@@ -34,11 +34,11 @@ function App() {
       // Create an object URL for the audio file
       const audioUrl = URL.createObjectURL(new Blob([response.data], { type: "audio/mpeg" }));
       setAudioSrc(audioUrl); // Set the audio source for the player
-      setLoading(false);
     } catch (error) {
       console.error("Error uploading file:", error);
-      setLoading(false);
       alert("An error occurred while processing your file.");
+    } finally {
+      setLoading(false);
     }
   };
 
